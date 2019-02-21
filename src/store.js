@@ -7,7 +7,8 @@ import Vuex from 'vuex';
 import _ from 'lodash';
 
 const REPORT_PATH = process.env.REPORT_PATH;
-import * as data from REPORT_PATH;
+const data = require(REPORT_PATH);
+// import * as data from REPORT_PATH;
 
 Vue.use(Vuex);
 
