@@ -6,9 +6,15 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import _ from 'lodash';
 
-const REPORT_PATH = process.env.REPORT_PATH;
-const data = require(REPORT_PATH);
-// import * as data from REPORT_PATH;
+/**
+ * This allows us to import the report path
+ * dynamically to work with systems with multiple
+ * Pa11y reports required.
+ */
+const REPORT_PATH = process.env && process.env.REPORT_PATH ? process.env.REPORT_PATH : '/app/tests/pa11y/report.json';
+const data = JSON.parse(
+  fs.readFileSync(REPORT_PATH).toString()
+);
 
 Vue.use(Vuex);
 
