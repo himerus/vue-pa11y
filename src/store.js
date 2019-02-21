@@ -11,6 +11,7 @@ import _ from 'lodash';
  * dynamically to work with systems with multiple
  * Pa11y reports required.
  */
+const fs  = require('fs');
 const REPORT_PATH = process.env && process.env.REPORT_PATH ? process.env.REPORT_PATH : '/app/tests/pa11y/report.json';
 const data = JSON.parse(
   fs.readFileSync(REPORT_PATH).toString()
